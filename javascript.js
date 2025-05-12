@@ -16,8 +16,11 @@ function getComputerChoice() {
         return "scissors";
         }
 }
-console.log(getComputerChoice());
 
 // CREATE a function named getHumanChoice
-    //Prompt the user for a input of one of the following three: rock. paper or scissors
+function getHumanChoice() {
+     //Prompt the user for a input of one of the following three: rock. paper or scissors
+    const choice = prompt("Rock, Paper or Scissors?");
+}
+console.log(getHumanChoice());
     
