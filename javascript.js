@@ -17,3 +17,7 @@ function getComputerChoice() {
         }
 }
 console.log(getComputerChoice());
+
+// CREATE a function named getHumanChoice
+    //Prompt the user for a input of one of the following three: rock. paper or scissors
+    
