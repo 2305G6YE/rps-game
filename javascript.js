@@ -4,7 +4,6 @@ function getComputerChoice() {
     //randomly returns a number using Math.random
     const decimalNumber = Math.random();
     const result = decimalNumber.toFixed(5);
-    console.log(result);
     //IF number is below or equal to 0.33, return "rock"
     if(result <= 0.33) {
         return "rock"; 
@@ -32,57 +31,59 @@ let humanScore = 0;
 let computerScore = 0;
 
 //CREATE a function named playRound, defining parameters as humanChoice and computerChoice
-function playRound(getHumanChoice(), getComputerChoice()) {
+function playRound(humanSelection, computerSelection) {
     getHumanChoice();
     getComputerChoice();
+    humanSelection = getHumanChoice();
+    computerSelection = getComputerChoice();
      //IF computerChoice is paper
-    if(getComputerChoice() = "paper") {
+    if(computerSelection = "paper") {
         //IF humanChoice is paper, return "Draw."
-        if(getHumanChoice() = "paper") {
+        if(humanSelection = "paper") {
             console.log("Draw");
         //ELSE IF humanChoice is rock, return "You Lose."    
-        }   else if(getHumanChoice() = "rock") {
+        }   else if(humanSelection = "rock") {
             //increment computerScore by 1
             console.log("Loss.");
             computerScore += 1;
         //ELSE IF humanChoice is scissors, return "You Win!"    
-        }   else if(getHumanChoice = "scissors") {
+        }   else if(humanSelection = "scissors") {
             //increment humanScore by 1
             console.log("Win!")
             humanScore += 1;
         }
     }
     //IF  computerchoice is rock
-    if(getComputerChoice() = "rock") {
+    if(computerSelection = "rock") {
         //IF humanChoice is paper, return "You Win!"
-        if(getHumanChoice() = "paper") {
+        if(humanSelection = "paper") {
             //increment humanScore by 1
             console.log("Win!")
             humanScore += 1;
         //ELSE IF humanChoice is rock, return "Draw."    
-        } else if(getHumanChoice() = "rock") {
+        } else if(humanSelection = "rock") {
             console.log("Draw");
         //ELSE IF humanChoice is scissors, return "You Lose."    
-        } else if(getHumanChoice = "scissors") {
+        } else if(humanSelection = "scissors") {
             //increment computerScore by 1
             console.log("Loss.");
             computerScore += 1;
         }
     }
     //IF computerChoice is scissors
-    if (getComputerChoice() = "scissors") {
+    if (computerSelection = "scissors") {
         //IF humanChoice is paper, return "You Lose."
-        if(getHumanChoice() = "paper") {
+        if(humanSelection = "paper") {
             console.log("Loss.");
             //increment computerScore by 1
             computerScore += 1;
             //ELSE IF humanChoice is rock, return "You Win!"
-        }   else if(getHumanChoice() = "rock") {
+        }   else if(humanSelection = "rock") {
             //increment humanScore by 1
             console.log("Win!")
             humanScore += 1;
             //ELSE IF humanChoice is scissors, return "Draw.
-        }   else if(getHumanChoice = "scissors") {
+        }   else if(humanSelection = "scissors") {
             console.log("Draw");
         }
     }
@@ -90,7 +91,7 @@ function playRound(getHumanChoice(), getComputerChoice()) {
    
 
 //CREATE a function named playGame
-function playGame(playRound()) {
+function playGame() {
     //WHILE starting at 0, until counter variable is at 5, run function playRound.
     let gameCounter = 0;
     while(gameCounter < 6) {
@@ -98,9 +99,7 @@ function playGame(playRound()) {
         gameCounter += 1;
     }
     //CONSOLE log both computerScore and humanScore.
-    console.log("Computer's Score: " + computerScore \n 
-                "Your Score: " + humanScore);
-
+    console.log(`Computer's Score:${computerScore}\n Your Score:${humanScore}`);  
     //IF computerScore > humanScore            
     if(computerScore > humanScore) {
         //PRINT "You Lost!"
