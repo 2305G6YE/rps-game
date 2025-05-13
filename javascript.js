@@ -90,9 +90,27 @@ function playRound(getHumanChoice(), getComputerChoice()) {
    
 
 //CREATE a function named playGame
+function playGame(playRound()) {
     //WHILE starting at 0, until counter variable is at 5, run function playRound.
+    let gameCounter = 0;
+    while(gameCounter < 6) {
+        playRound();
+        gameCounter += 1;
+    }
     //CONSOLE log both computerScore and humanScore.
-    //IF computerScore > humanScore
+    console.log("Computer's Score: " + computerScore \n 
+                "Your Score: " + humanScore);
+
+    //IF computerScore > humanScore            
+    if(computerScore > humanScore) {
         //PRINT "You Lost!"
-    //ELSE IF 
-        //
+        alert("You Lost!");
+        //ELSE IF 
+    }   else if (computerScore = humanScore) {
+        alert("Draw!");
+    }   else {
+        alert ("You Win!")
+    }
+}
+
+    
