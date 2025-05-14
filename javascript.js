@@ -32,63 +32,58 @@ let computerScore = 0;
 
 //CREATE a function named playRound, defining parameters as humanChoice and computerChoice
 function playRound(humanSelection, computerSelection) {
-    getHumanChoice();
-    getComputerChoice();
     humanSelection = getHumanChoice();
+    console.log(humanSelection);
     computerSelection = getComputerChoice();
+    console.log(computerSelection);
      //IF computerChoice is paper
-    if(computerSelection = "paper") {
+    if(computerSelection === "paper") {
         //IF humanChoice is paper, return "Draw."
-        if(humanSelection = "paper") {
+        if(humanSelection === "paper") {
             console.log("Draw");
         //ELSE IF humanChoice is rock, return "You Lose."    
-        }   else if(humanSelection = "rock") {
+        }   else if(humanSelection === "rock") {
             //increment computerScore by 1
             console.log("Loss.");
             computerScore += 1;
         //ELSE IF humanChoice is scissors, return "You Win!"    
-        }   else if(humanSelection = "scissors") {
+        }   else if(humanSelection === "scissors") {
             //increment humanScore by 1
             console.log("Win!")
             humanScore += 1;
-        }
-    }
-    //IF  computerchoice is rock
-    if(computerSelection = "rock") {
-        //IF humanChoice is paper, return "You Win!"
-        if(humanSelection = "paper") {
-            //increment humanScore by 1
-            console.log("Win!")
-            humanScore += 1;
-        //ELSE IF humanChoice is rock, return "Draw."    
-        } else if(humanSelection = "rock") {
-            console.log("Draw");
-        //ELSE IF humanChoice is scissors, return "You Lose."    
-        } else if(humanSelection = "scissors") {
-            //increment computerScore by 1
-            console.log("Loss.");
-            computerScore += 1;
-        }
-    }
-    //IF computerChoice is scissors
-    if (computerSelection = "scissors") {
-        //IF humanChoice is paper, return "You Lose."
-        if(humanSelection = "paper") {
-            console.log("Loss.");
-            //increment computerScore by 1
-            computerScore += 1;
-            //ELSE IF humanChoice is rock, return "You Win!"
-        }   else if(humanSelection = "rock") {
-            //increment humanScore by 1
-            console.log("Win!")
-            humanScore += 1;
-            //ELSE IF humanChoice is scissors, return "Draw.
-        }   else if(humanSelection = "scissors") {
-            console.log("Draw");
-        }
+        }//IF  computerchoice is rock
+    }   else if(computerSelection === "rock") {
+            //IF humanChoice is paper, return "You Win!"
+            if(humanSelection === "paper") {
+                //increment humanScore by 1
+                console.log("Win!")
+                humanScore += 1;
+            //ELSE IF humanChoice is rock, return "Draw."    
+            } else if(humanSelection === "rock") {
+                console.log("Draw");
+            //ELSE IF humanChoice is scissors, return "You Lose."    
+            } else if(humanSelection === "scissors") {
+                //increment computerScore by 1
+                console.log("Loss.");
+                computerScore += 1;
+            }//IF computerChoice is scissors
+        }   else if(computerSelection === "scissors") {
+            //IF humanChoice is paper, return "You Lose."
+            if(humanSelection === "paper") {
+                console.log("Loss.");
+                //increment computerScore by 1
+                computerScore += 1;
+                //ELSE IF humanChoice is rock, return "You Win!"
+            }   else if(humanSelection === "rock") {
+                //increment humanScore by 1
+                console.log("Win!")
+                humanScore += 1;
+                //ELSE IF humanChoice is scissors, return "Draw.
+            }   else if(humanSelection === "scissors") {
+                console.log("Draw");
+            }
     }
 }
-   
 
 //CREATE a function named playGame
 function playGame() {
@@ -103,11 +98,14 @@ function playGame() {
     //IF computerScore > humanScore            
     if(computerScore > humanScore) {
         //PRINT "You Lost!"
+        console.log("You Lost!");
         alert("You Lost!");
         //ELSE IF 
-    }   else if (computerScore = humanScore) {
+    }   else if (computerScore === humanScore) {
+        console.log("You Draw!");
         alert("Draw!");
     }   else {
+        console.log("You Win!")
         alert ("You Win!")
     }
 }
