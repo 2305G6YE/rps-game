@@ -29,18 +29,18 @@ function getHumanChoice() {
 //Initialize them to both start at 0
 let humanScore = 0;
 let computerScore = 0;
+let drawnScore = 0;
 
 //CREATE a function named playRound, defining parameters as humanChoice and computerChoice
 function playRound(humanSelection, computerSelection) {
     humanSelection = getHumanChoice();
-    console.log(humanSelection);
     computerSelection = getComputerChoice();
-    console.log(computerSelection);
      //IF computerChoice is paper
     if(computerSelection === "paper") {
         //IF humanChoice is paper, return "Draw."
         if(humanSelection === "paper") {
             console.log("Draw");
+            drawnScore += 1;
         //ELSE IF humanChoice is rock, return "You Lose."    
         }   else if(humanSelection === "rock") {
             //increment computerScore by 1
@@ -61,6 +61,7 @@ function playRound(humanSelection, computerSelection) {
             //ELSE IF humanChoice is rock, return "Draw."    
             } else if(humanSelection === "rock") {
                 console.log("Draw");
+                drawnScore += 1;
             //ELSE IF humanChoice is scissors, return "You Lose."    
             } else if(humanSelection === "scissors") {
                 //increment computerScore by 1
@@ -81,6 +82,7 @@ function playRound(humanSelection, computerSelection) {
                 //ELSE IF humanChoice is scissors, return "Draw.
             }   else if(humanSelection === "scissors") {
                 console.log("Draw");
+                drawnScore += 1;
             }
     }
 }
@@ -89,12 +91,12 @@ function playRound(humanSelection, computerSelection) {
 function playGame() {
     //WHILE starting at 0, until counter variable is at 5, run function playRound.
     let gameCounter = 0;
-    while(gameCounter < 6) {
+    while(gameCounter < 5) {
         playRound();
         gameCounter += 1;
     }
     //CONSOLE log both computerScore and humanScore.
-    console.log(`Computer's Score:${computerScore}\n Your Score:${humanScore}`);  
+    console.log(`Computer's Score:${computerScore}\n Your Score:${humanScore}\n Times Drawn:${drawnScore}`);  
     //IF computerScore > humanScore            
     if(computerScore > humanScore) {
         //PRINT "You Lost!"
