@@ -5,13 +5,13 @@ function getComputerChoice() {
     //const decimalNumber = Math.random();
     const result = Math.random().toFixed(2);
     //IF number is below or equal to 0.33, return "rock"
-    if(result <= 0.33) {
+    if(result < 1/3) {
         return "rock"; 
         // ELSE IF number is between 0.34 and 0.66, return "paper"
-        } else if (result > 0.33 && result < 0.67 ) {
+        } else if (result >= 1/3 && result < 2/3 ) {
         return "paper";
         // ELSE return "scissors"
-        } else if (result >= 0.67) {
+        } else if (result >= 0.68) {
         return "scissors";
         }
 }
@@ -30,7 +30,6 @@ function getComputerChoice() {
 let humanScore = 0;
 let computerScore = 0;
 let drawnScore = 0;
-let playCount = 0;
 
 const total = document.getElementById("total");
 //CREATE a function named playRound, defining parameters as humanChoice and computerChoice
@@ -45,19 +44,19 @@ function playRound(humanSelection, computerSelection) {
         if(humanSelection === "paper") {
             currentRound.textContent = "Draw";
             //console.log("Draw");
-            drawnScore ++;
+            ++drawnScore; 
         //ELSE IF humanChoice is rock, return "You Lose."    
         }   else if(humanSelection === "rock") {
             //increment computerScore by 1
             currentRound.textContent = "Computer";
             //console.log("Loss.");
-            computerScore ++;
+             ++computerScore;
         //ELSE IF humanChoice is scissors, return "You Win!"    
         }   else if(humanSelection === "scissors") {
             //increment humanScore by 1
             currentRound.textContent = "Player";
             //console.log("Win!")
-            humanScore ++;
+             ++humanScore;
         }//IF  computerchoice is rock
     }  else if(computerSelection === "rock") {
             //IF humanChoice is paper, return "You Win!"
@@ -65,18 +64,18 @@ function playRound(humanSelection, computerSelection) {
                 //increment humanScore by 1
                 currentRound.textContent = "Player";
                 //console.log("Win!")
-                humanScore ++;
+                 ++humanScore;
             //ELSE IF humanChoice is rock, return "Draw."    
             } else if(humanSelection === "rock") {
                 currentRound.textContent = "Draw";
                 //console.log("Draw");
-                drawnScore ++;
+                  ++drawnScore;
             //ELSE IF humanChoice is scissors, return "You Lose."    
             } else if(humanSelection === "scissors") {
                 //increment computerScore by 1
                 currentRound.textContent = "Computer";
                 //console.log("Loss.");
-                computerScore ++;
+                ++computerScore;
             }//IF computerChoice is scissors
     }   else if(computerSelection === "scissors") {
             //IF humanChoice is paper, return "You Lose."
@@ -84,26 +83,26 @@ function playRound(humanSelection, computerSelection) {
                     //console.log("Loss.");
                     currentRound.textContent = "Computer";
                     //increment computerScore by 1
-                    computerScore ++;
+                     ++computerScore;
                     //ELSE IF humanChoice is rock, return "You Win!"
                 }   else if(humanSelection === "rock") {
                     //increment humanScore by 1
                     currentRound.textContent = "Player";
                     //console.log("Win!")
-                    humanScore ++;
+                     ++humanScore;
                     //ELSE IF humanChoice is scissors, return "Draw.
                 }   else if(humanSelection === "scissors") {
-                    currentRound.textContent = "Draw"
+                    currentRound.textContent = "Draw";
                     //console.log("Draw");
-                    drawnScore ++;
+                     ++drawnScore;
                 }
     }
-    if (playCount < 5){
+    if (drawnScore + humanScore + computerScore < 5){
         if (computerScore > humanScore) {
             total.textContent = "Current Frontrunner: Computer(" +
             `${computerScore}` + " to " + `${humanScore}` + ", Draw: "
             + `${drawnScore}` + ")";
-        } else if(computerScore = humanScore) {
+        } else if(computerScore === humanScore) {
             total.textContent = "Current Frontrunner: Tied(" +
             `${computerScore}` + " to " + `${humanScore}` + ", Draw: "
             + `${drawnScore}` + ")";
@@ -112,13 +111,12 @@ function playRound(humanSelection, computerSelection) {
             `${humanScore}` + " to " + `${computerScore}` + ", Draw: "
             + `${drawnScore}` + ")";
         }
-        playCount ++;
-    } else if (playCount = 5) {
+    } else if (drawnScore + humanScore + computerScore == 5) {
         if (computerScore > humanScore) {
             total.textContent = "Final Winner: Computer!(" +
             `${computerScore}` + " to " + `${humanScore}` + ", Draw: "
             + `${drawnScore}` + ")";
-        } else if(computerScore = humanScore) {
+        } else if(computerScore === humanScore) {
             total.textContent = "Final Winner: Tied!(" +
             `${computerScore}` + " to " + `${humanScore}` + ", Draw: "
             + `${drawnScore}` + ")";
@@ -129,9 +127,10 @@ function playRound(humanSelection, computerSelection) {
         }
         computerScore = 0;
         humanScore = 0;
-        playCount = 0; 
         drawnScore = 0;
-    }       
+
+    }
+}
     // } else if (playCount > 4) {
     //     total.textContent = "";
     //     return;
@@ -139,7 +138,6 @@ function playRound(humanSelection, computerSelection) {
     //     total.textContent = "";
     //     return;
     // }
-}
 
 //CREATE a function named playGame
 // function playGame() {
@@ -170,18 +168,15 @@ function playRound(humanSelection, computerSelection) {
 const rock = document.getElementById("rock");
 rock.addEventListener('click', function(e) {
     //Play one round 
-    const computerSelection = getComputerChoice();
-    playRound("rock", computerSelection);
+    playRound("rock", getComputerChoice());
 });
 
 const scissors = document.getElementById("scissors");
 scissors.addEventListener('click', function(e) {
-    const computerSelection = getComputerChoice();
-    playRound("scissors", computerSelection);
+    playRound("scissors", getComputerChoice());
 });
 
 const paper = document.getElementById("paper");
 paper.addEventListener('click', function(e) {
-    const computerSelection = getComputerChoice();
-    playRound("paper", computerSelection);
+    playRound("paper", getComputerChoice());
 });
