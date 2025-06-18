@@ -15,7 +15,7 @@ Compared to my first problem set in cs50, i was a lot more methodical in breakin
 The only thing I desire out of this to learn more about is resetting counters back to 0 after every concluded game. In other words, learning more deeply about scope, hoisting and such. As of now the rock-paper-scissors game works fine, but the 2nd full game onwards the counter begins from the previous one instead of a clean slate.
 
 ## Coming back after learning DOM Manipulation (9th June 2025)
-Newly Learnt: `z-index` `<video` `rgba`
+Newly Learnt: `z-index` `<video` `rgba`  
 Most Helpful: `===` `document.getElementById`
 
 I was tasked to remake this project by asking the player to input their choices in the game using buttons that are interactable on the webpage. I further gave the project a bit of an extra spin (because I like doing such things) by adding in addition to the minimum requirements of displaying the final round winner and running score:
